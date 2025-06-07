@@ -1,7 +1,28 @@
-env/
+# Python
 __pycache__/
 *.pyc
-*.sqlite3
-*.log
+*.pyo
+*.pyd
+env/
+venv/
+.env
+
+# Django
 db.sqlite3
+
+# VS Code
+.vscode/
+
+# Docker
+*.log
+*.pid
+*.db
+*.sqlite3
+*.swp
+docker-compose.override.yml
+
+# Byte-compiled
+*.pyc
+*.pyo
+*.pyd
 

@@ -1,0 +1,7 @@
+<!-- templates/home.html -->
+<h2>Welcome to the Telecom Backend!</h2>
+
+<form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
