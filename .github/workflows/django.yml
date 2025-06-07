@@ -5,10 +5,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     services:
@@ -26,30 +24,23 @@ jobs:
           --health-timeout=5s
           --health-retries=5
 
-    env:
-      POSTGRES_DB: telecomdb
-      POSTGRES_USER: telecomuser
-      POSTGRES_PASSWORD: securepass
-      DEBUG: true
-      SECRET_KEY: django-test-secret
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-    - name: Run migrations
-      run: |
-        python telecom_project/manage.py migrate
+      - name: Run migrations
+        run: |
+          python telecom_project/manage.py migrate
 
-    - name: Run tests
-      run: |
-        python telecom_project/manage.py test
+      - name: Run tests
+        run: |
+          python telecom_project/manage.py test
